@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-mongoose.connect("mongodb+srv://inafxg:1234@inafog.xh0axq3.mongodb.net/course")
 
 
 const Schema = mongoose.Schema;
@@ -24,8 +23,9 @@ const adminSchema = new Schema({
 const courseSchema = new Schema({
     title: String,
     description: String,
-    firstName: String,
-    lastName: String
+    price: Number,
+    imageUrl: String,
+    creatorId: ObjectId,
 });
 
 const purchaseSchema = new Schema({
@@ -38,7 +38,7 @@ const adminModel = mongoose.model('admin',adminSchema)
 const courseModel = mongoose.model('course',courseSchema)
 const purchaseModel = mongoose.model('purchase', purchaseSchema)
 
-module.export = {
+module.exports = {
     userModel,
     adminModel,
     courseModel,
